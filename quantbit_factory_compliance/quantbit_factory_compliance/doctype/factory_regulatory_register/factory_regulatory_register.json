@@ -12,6 +12,7 @@
   "column_break_rjoz",
   "unit",
   "assigned_owner",
+  "posting_date",
   "section_break_addj",
   "license",
   "issued_on",
@@ -19,13 +20,17 @@
   "column_break_epvb",
   "license_no",
   "status",
+  "alert_before_days",
   "complianse_section",
   "compliance",
   "submitted_on",
   "due_date",
+  "frequency",
   "column_break_enqc",
+  "compliance_name",
   "compliance_status",
   "referance_no",
+  "grace_days",
   "section_break_eapf",
   "document",
   "remarks",
@@ -101,7 +106,8 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
-   "label": "License Status"
+   "label": "License Status",
+   "options": "Active\nExpired\nUnder\nRenewal"
   },
   {
    "fieldname": "issued_on",
@@ -165,13 +171,47 @@
    "fieldname": "referance_no",
    "fieldtype": "Data",
    "label": "Referance No."
+  },
+  {
+   "default": "30",
+   "fieldname": "alert_before_days",
+   "fieldtype": "Int",
+   "label": "Alert Before Days"
+  },
+  {
+   "default": "Today",
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fetch_from": "compliance.compliance_name",
+   "fieldname": "compliance_name",
+   "fieldtype": "Data",
+   "label": "Compliance Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "compliance.frequency",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "One-time\nMonthly\nQuarterly\nHalf-Yearly\nAnnualOne-time\nMonthly\nQuarterly\nHalf-Yearly\nAnnual",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "compliance.grace_days",
+   "fieldname": "grace_days",
+   "fieldtype": "Int",
+   "label": "Grace Days",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-16 12:44:19.766549",
+ "modified": "2026-01-16 15:01:16.679018",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Factory Regulatory Register",
