@@ -8,10 +8,10 @@
  "field_order": [
   "section_break_1duj",
   "license_type",
-  "validity_period_months",
+  "license_no",
   "column_break_lghj",
   "issuing_authority",
-  "alert_before_days",
+  "validity_period_months",
   "section_break_yyqn",
   "requires_inspection",
   "column_break_nnbx",
@@ -27,8 +27,9 @@
   },
   {
    "fieldname": "license_type",
-   "fieldtype": "Data",
-   "label": "License Type ",
+   "fieldtype": "Link",
+   "label": "License Type",
+   "options": "License Type",
    "unique": 1
   },
   {
@@ -47,12 +48,6 @@
    "in_list_view": 1,
    "label": "Issuing Authority",
    "reqd": 1
-  },
-  {
-   "default": "30",
-   "fieldname": "alert_before_days",
-   "fieldtype": "Int",
-   "label": "Alert Before Days "
   },
   {
    "fieldname": "section_break_yyqn",
@@ -92,13 +87,17 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "license_no",
+   "fieldtype": "Data",
+   "label": "License No."
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2026-01-15 12:13:33.292759",
+ "modified": "2026-01-16 12:47:30.719903",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "License",
@@ -115,7 +114,6 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],

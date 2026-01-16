@@ -7,15 +7,13 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_u9cv",
-  "license_type",
+  "license",
   "factory",
-  "valid_from",
   "issued_on",
   "assigned_owner",
   "column_break_fhve",
   "license_no",
   "status",
-  "valid_up_to",
   "renewable_due_on",
   "section_break_quxu",
   "document",
@@ -28,13 +26,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "license_type",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "License Type",
-   "reqd": 1
-  },
-  {
    "fieldname": "license_no",
    "fieldtype": "Data",
    "label": "License No.",
@@ -43,8 +34,10 @@
   {
    "fieldname": "factory",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Factory",
-   "options": "Company"
+   "options": "Company",
+   "reqd": 1
   },
   {
    "fieldname": "issued_on",
@@ -52,18 +45,8 @@
    "label": "Issued On"
   },
   {
-   "fieldname": "valid_from",
-   "fieldtype": "Date",
-   "label": "Valid From"
-  },
-  {
    "fieldname": "column_break_fhve",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "valid_up_to",
-   "fieldtype": "Date",
-   "label": "Valid Up To"
   },
   {
    "fieldname": "status",
@@ -83,6 +66,7 @@
   {
    "fieldname": "document",
    "fieldtype": "Attach",
+   "in_list_view": 1,
    "label": "Document",
    "reqd": 1
   },
@@ -106,13 +90,21 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "license",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "License",
+   "options": "License",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-15 12:36:51.779012",
+ "modified": "2026-01-16 11:56:34.033974",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "License Record",

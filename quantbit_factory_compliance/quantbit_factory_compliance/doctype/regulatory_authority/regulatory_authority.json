@@ -12,8 +12,7 @@
   "jurisdiction",
   "column_break_tphs",
   "contact_email",
-  "contact_phone",
-  "amended_from"
+  "contact_phone"
  ],
  "fields": [
   {
@@ -28,8 +27,9 @@
   },
   {
    "fieldname": "department",
-   "fieldtype": "Data",
-   "label": "Department"
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
   },
   {
    "fieldname": "jurisdiction",
@@ -49,23 +49,12 @@
    "fieldname": "contact_phone",
    "fieldtype": "Data",
    "label": "Contact Phone"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Regulatory Authority",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2026-01-15 12:13:20.165735",
+ "modified": "2026-01-16 11:17:48.642973",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Regulatory Authority",
@@ -82,7 +71,6 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],

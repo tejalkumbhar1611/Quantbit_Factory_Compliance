@@ -8,7 +8,7 @@
  "field_order": [
   "section_break_tlyx",
   "case_number",
-  "authority",
+  "authority_name",
   "party_name",
   "risk_level",
   "assigned_leagal_officer",
@@ -50,12 +50,6 @@
    "fieldtype": "Select",
    "label": "Case Status",
    "options": "Open\nHearing\nClosed\nStay"
-  },
-  {
-   "description": "Court\nTribunal",
-   "fieldname": "authority",
-   "fieldtype": "Data",
-   "label": "Authority "
   },
   {
    "fieldname": "party_name",
@@ -106,7 +100,7 @@
   {
    "fieldname": "hearing_log",
    "fieldtype": "Table",
-   "label": "Hearing Log",
+   "label": "Legal Hearing Log",
    "options": "Legal Hearing Log"
   },
   {
@@ -118,13 +112,19 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "authority_name",
+   "fieldtype": "Link",
+   "label": "Authority Name",
+   "options": "Regulatory Authority"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-15 12:45:45.810766",
+ "modified": "2026-01-16 10:24:01.864066",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Legal Case",
