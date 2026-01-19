@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:reference_name",
+ "autoname": "format:{reference_doctype} - {.####}",
  "creation": "2026-01-15 11:33:57.274921",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -14,7 +14,8 @@
   "column_break_rpzi",
   "reference_name",
   "assigned_to",
-  "status"
+  "status",
+  "amended_from"
  ],
  "fields": [
   {
@@ -24,17 +25,17 @@
   {
    "fieldname": "reference_doctype",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Reference Doctype ",
    "options": "Factory Regulatory Register"
   },
   {
-   "fetch_from": "reference_doctype.remarks",
    "fieldname": "task_name",
    "fieldtype": "Data",
    "label": "Task Name"
   },
   {
-   "fetch_from": "reference_doctype.due_date",
    "fieldname": "due_date",
    "fieldtype": "Date",
    "label": "Due Date"
@@ -44,14 +45,14 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "reference_doctype.compliance_name",
    "fieldname": "reference_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Reference Name",
    "unique": 1
   },
   {
-   "fetch_from": "reference_doctype.assigned_owner",
    "fieldname": "assigned_to",
    "fieldtype": "Link",
    "label": "Assigned To",
@@ -67,18 +68,28 @@
   {
    "fieldname": "document",
    "fieldtype": "Attach",
-   "label": "Document"
+   "label": "Attach Document"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Compliance Task",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-19 12:56:31.676806",
+ "modified": "2026-01-19 13:24:37.722423",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Compliance Task",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

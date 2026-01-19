@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Format:Compliance - {compliance_name}",
+ "autoname": "Format:{compliance_code} - {compliance_name}",
  "creation": "2026-01-15 10:29:44.402210",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -126,7 +126,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-19 13:06:46.203615",
+ "modified": "2026-01-19 13:20:26.115633",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Compliance Master",
