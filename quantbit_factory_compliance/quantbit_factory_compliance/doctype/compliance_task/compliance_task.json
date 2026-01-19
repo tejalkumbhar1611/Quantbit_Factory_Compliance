@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:reference_name",
+ "autoname": "format:{reference_doctype} - {.####}",
  "creation": "2026-01-15 11:33:57.274921",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,10 +10,12 @@
   "reference_doctype",
   "task_name",
   "due_date",
+  "document",
   "column_break_rpzi",
   "reference_name",
   "assigned_to",
-  "status"
+  "status",
+  "posting_date"
  ],
  "fields": [
   {
@@ -23,6 +25,8 @@
   {
    "fieldname": "reference_doctype",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Reference Doctype ",
    "options": "Factory Regulatory Register"
   },
@@ -43,11 +47,12 @@
   {
    "fieldname": "reference_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Reference Name",
    "unique": 1
   },
   {
-   "fetch_from": "reference_doctype.assigned_owner",
    "fieldname": "assigned_to",
    "fieldtype": "Link",
    "label": "Assigned To",
@@ -57,18 +62,29 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Open\nCompleted\nDelayed"
+   "options": "Open\nCompleted\nDelayed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "document",
+   "fieldtype": "Attach",
+   "label": "Attach Document"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-16 12:58:03.191445",
+ "modified": "2026-01-19 13:29:31.178542",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Compliance Task",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

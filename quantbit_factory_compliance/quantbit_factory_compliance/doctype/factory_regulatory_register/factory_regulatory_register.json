@@ -23,14 +23,17 @@
   "alert_before_days",
   "complianse_section",
   "compliance",
+  "referance_no",
   "submitted_on",
+  "period_from",
+  "period_to",
   "due_date",
-  "frequency",
   "column_break_enqc",
   "compliance_name",
+  "frequency",
   "compliance_status",
-  "referance_no",
   "grace_days",
+  "due_day",
   "section_break_eapf",
   "document",
   "remarks",
@@ -107,7 +110,8 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "License Status",
-   "options": "Active\nExpired\nUnder\nRenewal"
+   "options": "Active\nExpired\nUnder Renewal",
+   "read_only": 1
   },
   {
    "fieldname": "issued_on",
@@ -150,9 +154,11 @@
   {
    "fieldname": "due_date",
    "fieldtype": "Date",
-   "label": "Due Date"
+   "label": "Due Date",
+   "read_only": 1
   },
   {
+   "default": "Today",
    "fieldname": "submitted_on",
    "fieldtype": "Date",
    "label": "Submitted On"
@@ -165,7 +171,8 @@
    "fieldname": "compliance_status",
    "fieldtype": "Select",
    "label": "Compliance Status",
-   "options": "Pending\nSubmitted\nApproved\nOverdue"
+   "options": "Pending\nSubmitted\nApproved\nOverdue",
+   "read_only": 1
   },
   {
    "fieldname": "referance_no",
@@ -205,13 +212,30 @@
    "fieldtype": "Int",
    "label": "Grace Days",
    "read_only": 1
+  },
+  {
+   "fieldname": "period_from",
+   "fieldtype": "Date",
+   "label": "Period From"
+  },
+  {
+   "fieldname": "period_to",
+   "fieldtype": "Date",
+   "label": "Period To"
+  },
+  {
+   "fetch_from": "compliance.due_date",
+   "fieldname": "due_day",
+   "fieldtype": "Data",
+   "label": "Due Day",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-16 15:01:16.679018",
+ "modified": "2026-01-19 13:25:22.533407",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Factory Regulatory Register",
