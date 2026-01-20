@@ -71,10 +71,10 @@
    "options": "One-time\nMonthly\nQuarterly\nHalf-Yearly\nAnnual"
   },
   {
-   "description": "PCB, Labour Dept, PESO",
    "fieldname": "authority",
-   "fieldtype": "Data",
-   "label": "Authority"
+   "fieldtype": "Link",
+   "label": "Authority",
+   "options": "Authority"
   },
   {
    "default": "1",
@@ -126,7 +126,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-19 13:20:26.115633",
+ "modified": "2026-01-20 11:09:07.656221",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Compliance Master",
