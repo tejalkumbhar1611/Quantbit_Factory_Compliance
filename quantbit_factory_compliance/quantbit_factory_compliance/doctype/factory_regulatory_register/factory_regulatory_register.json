@@ -12,32 +12,34 @@
   "column_break_rjoz",
   "unit",
   "assigned_owner",
+  "column_break_xdbs",
   "posting_date",
   "section_break_addj",
   "license",
   "issued_on",
-  "valid_upto",
   "column_break_epvb",
   "license_no",
+  "valid_upto",
+  "column_break_tauc",
   "status",
   "alert_before_days",
   "complianse_section",
   "compliance",
-  "referance_no",
   "submitted_on",
-  "period_from",
-  "period_to",
-  "due_date",
+  "frequency",
+  "grace_days",
   "column_break_enqc",
   "compliance_name",
-  "frequency",
+  "period_from",
   "compliance_status",
-  "grace_days",
   "due_day",
+  "column_break_mwqf",
+  "referance_no",
+  "period_to",
+  "due_date",
   "section_break_eapf",
   "document",
-  "remarks",
-  "amended_from"
+  "remarks"
  ],
  "fields": [
   {
@@ -48,7 +50,7 @@
    "fieldname": "factory",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Factory",
+   "label": "Company",
    "options": "Company",
    "reqd": 1
   },
@@ -66,8 +68,8 @@
   {
    "fieldname": "unit",
    "fieldtype": "Link",
-   "label": "Unit",
-   "options": "Cost Center"
+   "label": "Branch",
+   "options": "Branch"
   },
   {
    "fieldname": "valid_upto",
@@ -130,16 +132,6 @@
    "label": "Document"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Factory Regulatory Register",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "depends_on": "eval:doc.category==\"Compliance\"",
    "fieldname": "complianse_section",
    "fieldtype": "Section Break",
@@ -154,8 +146,7 @@
   {
    "fieldname": "due_date",
    "fieldtype": "Date",
-   "label": "Due Date",
-   "read_only": 1
+   "label": "Due Date"
   },
   {
    "default": "Today",
@@ -171,7 +162,7 @@
    "fieldname": "compliance_status",
    "fieldtype": "Select",
    "label": "Compliance Status",
-   "options": "Pending\nSubmitted\nApproved\nOverdue",
+   "options": "Pending\nCompleted",
    "read_only": 1
   },
   {
@@ -224,18 +215,31 @@
    "label": "Period To"
   },
   {
-   "fetch_from": "compliance.due_date",
+   "fetch_from": "compliance.due_day",
    "fieldname": "due_day",
    "fieldtype": "Data",
    "label": "Due Day",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_xdbs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tauc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mwqf",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-19 13:25:22.533407",
+ "modified": "2026-01-20 11:26:40.729045",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Factory Regulatory Register",

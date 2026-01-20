@@ -1,10 +1,9 @@
 # Copyright (c) 2026, Quantbit Technologies and contributors
 # For license information, please see license.txt
 
-import frappe
+# import frappe
 from frappe.model.document import Document
-from frappe.utils import add_days, getdate
 
-class FactoryRegulatoryRegister(Document):
 
-    pass
+class LicenseTask(Document):
+	pass

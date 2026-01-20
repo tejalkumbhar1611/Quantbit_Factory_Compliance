@@ -17,7 +17,7 @@
   "authority",
   "is_active",
   "column_break_javt",
-  "due_date",
+  "due_day",
   "grace_days",
   "section_break_mtqj",
   "penalty_details",
@@ -87,12 +87,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "due_date",
-   "fieldtype": "Int",
-   "label": "Due Day",
-   "non_negative": 1
-  },
-  {
    "fieldname": "grace_days",
    "fieldtype": "Int",
    "label": "Grace Days"
@@ -121,12 +115,17 @@
    "fieldtype": "Table",
    "label": "Compliance Mandatory Document",
    "options": "Compliance Mandatory Document"
+  },
+  {
+   "fieldname": "due_day",
+   "fieldtype": "Int",
+   "label": "Due Day"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-19 13:20:26.115633",
+ "modified": "2026-01-19 16:30:48.014810",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Compliance Master",
