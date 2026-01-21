@@ -7,13 +7,16 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_qbf9",
+  "column_break_acar",
   "factory",
   "category",
+  "submitted_date",
   "column_break_rjoz",
   "unit",
   "assigned_owner",
   "column_break_xdbs",
   "posting_date",
+  "alert_before_days",
   "section_break_addj",
   "license",
   "issued_on",
@@ -22,24 +25,22 @@
   "valid_upto",
   "column_break_tauc",
   "status",
-  "alert_before_days",
   "complianse_section",
   "compliance",
-  "submitted_on",
   "frequency",
-  "grace_days",
+  "compliance_status",
   "column_break_enqc",
   "compliance_name",
   "period_from",
-  "compliance_status",
-  "due_day",
+  "due_date",
   "column_break_mwqf",
   "referance_no",
   "period_to",
-  "due_date",
   "section_break_eapf",
   "document",
-  "remarks"
+  "remarks",
+  "section_break_svzt",
+  "task_details"
  ],
  "fields": [
   {
@@ -114,7 +115,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "License Status",
-   "options": "Active\nExpired\nUnder Renewal",
+   "options": "Active\nExpired\nCompleted",
    "read_only": 1
   },
   {
@@ -151,12 +152,6 @@
    "label": "Due Date"
   },
   {
-   "default": "Today",
-   "fieldname": "submitted_on",
-   "fieldtype": "Date",
-   "label": "Submitted On"
-  },
-  {
    "fieldname": "column_break_enqc",
    "fieldtype": "Column Break"
   },
@@ -166,8 +161,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Compliance Status",
-   "options": "Pending\nCompleted",
-   "read_only": 1
+   "options": "Pending\nClosed"
   },
   {
    "fieldname": "referance_no",
@@ -175,10 +169,10 @@
    "label": "Referance No."
   },
   {
-   "default": "30",
    "fieldname": "alert_before_days",
    "fieldtype": "Int",
-   "label": "Alert Before Days"
+   "label": "Alert Before Days",
+   "reqd": 1
   },
   {
    "default": "Today",
@@ -202,13 +196,6 @@
    "read_only": 1
   },
   {
-   "fetch_from": "compliance.grace_days",
-   "fieldname": "grace_days",
-   "fieldtype": "Int",
-   "label": "Grace Days",
-   "read_only": 1
-  },
-  {
    "fieldname": "period_from",
    "fieldtype": "Date",
    "label": "Period From"
@@ -217,13 +204,6 @@
    "fieldname": "period_to",
    "fieldtype": "Date",
    "label": "Period To"
-  },
-  {
-   "fetch_from": "compliance.due_day",
-   "fieldname": "due_day",
-   "fieldtype": "Data",
-   "label": "Due Day",
-   "read_only": 1
   },
   {
    "fieldname": "column_break_xdbs",
@@ -236,6 +216,28 @@
   {
    "fieldname": "column_break_mwqf",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "submitted_date",
+   "fieldtype": "Date",
+   "label": "Submitted Date"
+  },
+  {
+   "default": "Today",
+   "fieldname": "column_break_acar",
+   "fieldtype": "Column Break",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_svzt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "task_details",
+   "fieldtype": "Table",
+   "label": "Task Details",
+   "options": "Task Details",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
@@ -243,7 +245,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-20 11:26:40.729045",
+ "modified": "2026-01-21 12:07:52.274558",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Factory Regulatory Register",

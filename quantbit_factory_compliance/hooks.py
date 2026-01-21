@@ -197,19 +197,20 @@ fixtures = [
 # }
 
 
-scheduler_events = {
-    "cron": {
-        "*/1 * * * *": [ 
-            "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.print_msg",
-            "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.create_new_frr",
-            "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.create_license_task",
-            "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.expire_license_frr",
-            "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.submit_all_frr",
-            "quantbit_factory_compliance.quantbit_factory_compliance.doctype.factory_regulatory_register.factory_regulatory_register.send_compliance"
-            # "quantbit_factory_compliance.quantbit_factory_compliance.doctype.factory_regulatory_register.factory_regulatory_register.cancel_all"
-        ]
-    }
-}
+# scheduler_events = {
+#     "cron": {
+#         "*/1 * * * *": [ 
+#             "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.print_msg",
+#             "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.create_new_frr",
+#             "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.create_license_task",
+#             # "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.create_license_frr",
+#             "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.expire_license_frr",
+#             "quantbit_factory_compliance.quantbit_factory_compliance.schedulers.submit_all_frr",
+#             "quantbit_factory_compliance.quantbit_factory_compliance.doctype.factory_regulatory_register.factory_regulatory_register.send_compliance"
+#             # "quantbit_factory_compliance.quantbit_factory_compliance.doctype.factory_regulatory_register.factory_regulatory_register.cancel_all"
+#         ]
+#     }
+# }
 
 
 # scheduler_events = {

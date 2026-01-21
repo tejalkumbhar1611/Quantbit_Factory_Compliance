@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-20 16:20:40.242255",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-20 16:20:40.242255",
+ "modified_by": "Administrator",
+ "module": "Quantbit Factory Compliance",
+ "name": "Liability Per Risk level Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    risk_level AS \"Risk Level::150\",\n    SUM(potential_liability) AS \"Total Liability:Currency:180\",\n    COUNT(name) AS \"Number of Cases::120\"\nFROM\n    `tabLegal Case`\nWHERE\n    potential_liability IS NOT NULL\nGROUP BY\n    risk_level\nORDER BY\n    FIELD(risk_level, 'High', 'Medium', 'Low');\n",
+ "ref_doctype": "Factory Regulatory Register",
+ "report_name": "Liability Per Risk level Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

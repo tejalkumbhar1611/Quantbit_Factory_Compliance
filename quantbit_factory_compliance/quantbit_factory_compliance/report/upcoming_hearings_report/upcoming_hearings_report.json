@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-20 16:21:19.040686",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-20 16:21:19.040686",
+ "modified_by": "Administrator",
+ "module": "Quantbit Factory Compliance",
+ "name": "Upcoming Hearings Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n  DATE_FORMAT(lc.next_hearing_date, '%%d %%b %%Y') AS \"Hearing Date\",\n  COUNT(lc.name) AS \"Total Cases:Int\"\nFROM\n  `tabLegal Case` lc\nWHERE\n  lc.next_hearing_date >= CURDATE()\nGROUP BY\n  lc.next_hearing_date\nORDER BY\n  lc.next_hearing_date;\n",
+ "ref_doctype": "Factory Regulatory Register",
+ "report_name": "Upcoming Hearings Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
