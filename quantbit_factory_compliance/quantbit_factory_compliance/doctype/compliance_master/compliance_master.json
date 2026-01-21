@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Format:{compliance_code} - {compliance_name}",
+ "autoname": "field:compliance_name",
  "creation": "2026-01-15 10:29:44.402210",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,15 +9,15 @@
   "section_break_l5un",
   "compliance_code",
   "compliance_category",
+  "series",
   "column_break_jutp",
   "compliance_name",
   "applicable_act",
+  "disable",
   "section_break_kpqq",
   "frequency",
   "authority",
-  "is_active",
   "column_break_javt",
-  "due_day",
   "grace_days",
   "section_break_mtqj",
   "penalty_details",
@@ -29,14 +29,6 @@
   {
    "fieldname": "section_break_l5un",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "compliance_code",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Compliance Code",
-   "reqd": 1,
-   "unique": 1
   },
   {
    "fieldname": "compliance_category",
@@ -51,14 +43,16 @@
   {
    "fieldname": "compliance_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Compliance Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
-   "description": "e.g. Factories Act, Boiler Act\n",
    "fieldname": "applicable_act",
-   "fieldtype": "Data",
-   "label": "Applicable Act"
+   "fieldtype": "Link",
+   "label": "Applicable Act",
+   "options": "Act Master"
   },
   {
    "fieldname": "section_break_kpqq",
@@ -68,19 +62,14 @@
    "fieldname": "frequency",
    "fieldtype": "Select",
    "label": "Frequency",
-   "options": "One-time\nMonthly\nQuarterly\nHalf-Yearly\nAnnual"
+   "options": "One-time\nMonthly\nQuarterly\nHalf-Yearly\nAnnual",
+   "reqd": 1
   },
   {
    "fieldname": "authority",
    "fieldtype": "Link",
    "label": "Authority",
    "options": "Authority"
-  },
-  {
-   "default": "1",
-   "fieldname": "is_active",
-   "fieldtype": "Check",
-   "label": "Is Active"
   },
   {
    "fieldname": "column_break_javt",
@@ -117,19 +106,39 @@
    "options": "Compliance Mandatory Document"
   },
   {
-   "fieldname": "due_day",
-   "fieldtype": "Int",
-   "label": "Due Day"
+   "bold": 1,
+   "default": "COM-.YYYY.-",
+   "fieldname": "series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "no_copy": 1,
+   "options": "COM-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "compliance_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Compliance Code",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "disable",
+   "fieldtype": "Check",
+   "label": "disable"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-19 16:30:48.014810",
+ "modified": "2026-01-21 11:38:57.256371",
  "modified_by": "Administrator",
  "module": "Quantbit Factory Compliance",
  "name": "Compliance Master",
- "naming_rule": "Expression",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

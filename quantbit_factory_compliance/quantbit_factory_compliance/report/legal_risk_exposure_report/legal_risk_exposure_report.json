@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-20 16:19:46.051584",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-20 16:19:46.051584",
+ "modified_by": "Administrator",
+ "module": "Quantbit Factory Compliance",
+ "name": "Legal Risk Exposure Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    lc.risk_level AS \"Risk Level::100\",\n    COUNT(lc.name) AS \"Number of Cases::120\",\n    SUM(lc.potential_liability) AS \"Total Potential Liability:Currency:150\",\n    GROUP_CONCAT(lc.case_number) AS \"Cases::300\"\nFROM `tabLegal Case` lc\nWHERE\n    lc.case_status IN ('Open', 'Hearing')\nGROUP BY lc.risk_level\nORDER BY\n    FIELD(lc.risk_level, 'High', 'Medium', 'Low');\n",
+ "ref_doctype": "Legal Case",
+ "report_name": "Legal Risk Exposure Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

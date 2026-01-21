@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-20 16:13:27.470816",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-20 16:13:27.470816",
+ "modified_by": "Administrator",
+ "module": "Quantbit Factory Compliance",
+ "name": "Licenses Under Renewal",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    license AS \"License:Data:220\",\n    status AS \"Status:Data:140\",\n    issued_on AS \"Issued On:Date:120\",\n    valid_upto AS \"Valid Upto:Date:120\",\n    DATEDIFF(valid_upto, CURDATE()) AS \"Days Remaining:Int:130\"\nFROM `tabFactory Regulatory Register`\nWHERE\n    category = 'License'\n    AND status = 'Under Renewal'\n    AND docstatus = 1\nORDER BY valid_upto ASC;\n",
+ "ref_doctype": "Factory Regulatory Register",
+ "report_name": "Licenses Under Renewal",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

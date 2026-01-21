@@ -1,0 +1,30 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-20 16:10:46.544913",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-20 16:10:46.544913",
+ "modified_by": "Administrator",
+ "module": "Quantbit Factory Compliance",
+ "name": "Licenses Expiry Next 30 60 90 Days",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    b.range_label AS \"Expiry Range:Data:200\",\n    COALESCE(x.total, 0) AS \"Total:Int:120\"\nFROM (\n    SELECT 'Next 0-30 Days' AS range_label, 1 AS sort_order\n    UNION ALL SELECT 'Next 31-60 Days', 2\n    UNION ALL SELECT 'Next 61-90 Days', 3\n) b\nLEFT JOIN (\n    SELECT\n        CASE\n            WHEN diff_days BETWEEN 0 AND 30 THEN 'Next 0-30 Days'\n            WHEN diff_days BETWEEN 31 AND 60 THEN 'Next 31-60 Days'\n            WHEN diff_days BETWEEN 61 AND 90 THEN 'Next 61-90 Days'\n        END AS range_label,\n        COUNT(name) AS total\n    FROM (\n        SELECT\n            name,\n            DATEDIFF(valid_upto, CURDATE()) AS diff_days\n        FROM `tabFactory Regulatory Register`\n        WHERE\n            category = 'License'\n            AND LOWER(TRIM(status)) = 'active'\n            AND valid_upto IS NOT NULL\n    ) t\n    WHERE diff_days BETWEEN 0 AND 90\n    GROUP BY range_label\n) x\nON b.range_label = x.range_label\nORDER BY b.sort_order;\n",
+ "ref_doctype": "Factory Regulatory Register",
+ "report_name": "Licenses Expiry Next 30 60 90 Days",
+ "report_script": "SELECT\n    b.range_label AS \"Expiry Range:Data:200\",\n    COALESCE(x.total, 0) AS \"Total:Int:120\"\nFROM (\n    SELECT 'Next 0-30 Days' AS range_label, 1 AS sort_order\n    UNION ALL SELECT 'Next 31-60 Days', 2\n    UNION ALL SELECT 'Next 61-90 Days', 3\n) b\nLEFT JOIN (\n    SELECT\n        CASE\n            WHEN diff_days BETWEEN 0 AND 30 THEN 'Next 0-30 Days'\n            WHEN diff_days BETWEEN 31 AND 60 THEN 'Next 31-60 Days'\n            WHEN diff_days BETWEEN 61 AND 90 THEN 'Next 61-90 Days'\n        END AS range_label,\n        COUNT(name) AS total\n    FROM (\n        SELECT\n            name,\n            DATEDIFF(valid_upto, CURDATE()) AS diff_days\n        FROM `tabFactory Regulatory Register`\n        WHERE\n            category = 'License'\n            AND status = 'Active'\n            AND docstatus = 1\n            AND valid_upto IS NOT NULL\n    ) t\n    WHERE diff_days BETWEEN 0 AND 90\n    GROUP BY range_label\n) x\nON b.range_label = x.range_label\nORDER BY b.sort_order;\n",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

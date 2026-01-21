@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-20 16:20:07.211903",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-20 16:20:07.211903",
+ "modified_by": "Administrator",
+ "module": "Quantbit Factory Compliance",
+ "name": "Case Closure Summary Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    lc.case_number AS \"Case Number:Link/Legal Case:120\",\n    lc.case_type AS \"Case Type::100\",\n    lc.party_name AS \"Party Name::150\",\n    lc.factory AS \"Factory:Link/Company:120\",\n    lc.risk_level AS \"Risk Level::100\",\n    lc.potential_liability AS \"Liability:Currency:150\",\n    lc.assigned_leagal_officer AS \"Legal Officer:Link/User:150\",\n    MAX(hl.hearing_date) AS \"Last Hearing Date:Date:120\",\n    MAX(hl.outcome) AS \"Final Outcome::200\"\nFROM `tabLegal Case` lc\nLEFT JOIN `tabLegal Hearing Log` hl\n    ON hl.parent = lc.name\nWHERE\n    lc.case_status = 'Closed'\nGROUP BY lc.name\nORDER BY MAX(hl.hearing_date) DESC;\n",
+ "ref_doctype": "Legal Case",
+ "report_name": "Case Closure Summary Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

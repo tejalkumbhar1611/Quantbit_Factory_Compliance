@@ -66,7 +66,7 @@ class FactoryRegulatoryRegister(Document):
 
         
         if self.docstatus == 1:
-            self.compliance_status = "Submitted"
+            self.compliance_status = "Completed"
 
     
         if self.due_date:
@@ -75,13 +75,13 @@ class FactoryRegulatoryRegister(Document):
             overdue_date = add_days(due_date, grace_days)
 
             if getdate(today()) > overdue_date:
-                self.compliance_status = "Overdue"
+                self.compliance_status = "Completed"
                 return
 
     
         if self.document and self.due_date:
             if getdate(today()) <= overdue_date:
-                self.compliance_status = "Approved"
+                self.compliance_status = "Completed"
 
 @frappe.whitelist()
 def send_compliance():
