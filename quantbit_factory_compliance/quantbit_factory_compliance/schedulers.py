@@ -365,7 +365,6 @@ def expire_license_frr():
 
 
 
-
 # def submit_all_frr():
 #     task_submit = frappe.get_all("Factory Regulatory Register", filters={"docstatus":1}, fields=["name"])
 #     for task in task_submit:
