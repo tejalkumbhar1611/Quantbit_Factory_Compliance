@@ -37,6 +37,14 @@ fixtures = [
                 "Compliance by Factory"
             ]]
         ]
+    },
+    {
+        "dt": "Workspace",
+        "filters": [
+            ["name", "in", [
+                "Quantbit Factory Compliance"
+            ]]
+        ]
     }
 ]
 
