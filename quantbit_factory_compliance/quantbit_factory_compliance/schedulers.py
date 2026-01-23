@@ -232,26 +232,26 @@ def send_factory_regulatory_notifications():
             f"Notification was scheduled {rec.alert_before_days} day(s) in advance."
         )
 
-        # 🔔 System Notification
         send_system_notification(
             user=rec.assigned_owner,
             subject=f"{rec.category} Alert",
             message=message
         )
 
-        # 🔔 Bell (Realtime) Notification
         send_bell_notification(
             user=rec.assigned_owner,
             subject=f"{rec.category} Alert",
             message=message
         )
 
-        # 📧 Email Notification
-        send_email_notification(
-            recipients=[rec.assigned_owner],
-            subject=f"{rec.category} Alert",
-            message=message
-        )
+        user_email = frappe.db.get_value("User", rec.assigned_owner, "email")
+
+        if user_email:
+            send_email_notification(
+                recipients=[user_email],
+                subject=f"{rec.category} Alert",
+                message=message
+            )
 
 
 def send_system_notification(user, subject, message):
@@ -264,7 +264,6 @@ def send_system_notification(user, subject, message):
     }).insert(ignore_permissions=True)
 
 
-
 def send_email_notification(recipients, subject, message):
     frappe.sendmail(
         recipients=recipients,
@@ -273,14 +272,13 @@ def send_email_notification(recipients, subject, message):
     )
 
 
-
 def send_bell_notification(user, subject, message):
     frappe.publish_realtime(
         event="notification",
         message={
-        "type": "Alert",
-        "subject": subject,
-        "message": message
+            "type": "Alert",
+            "subject": subject,
+            "message": message
         },
         user=user
     )
